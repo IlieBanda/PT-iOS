@@ -53,8 +53,8 @@ installer/*/obj/
 *.xci
 .env
 .env.*
-data/
-Documents/
+/data/
+/Documents/
 *.sav
 *.log
 .xcodebuildmcp/
