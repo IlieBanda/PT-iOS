@@ -1,0 +1,35 @@
+name: PTImportSmoke
+options:
+  deploymentTarget:
+    iOS: '18.0'
+settings:
+  base:
+    CLANG_ENABLE_OBJC_ARC: YES
+    CLANG_CXX_LANGUAGE_STANDARD: c++20
+    HEADER_SEARCH_PATHS: '$(SRCROOT)/../../ios'
+    CODE_SIGNING_ALLOWED: YES
+targets:
+  PTImportSmoke:
+    type: application
+    platform: iOS
+    sources:
+      - path: main.mm
+      - path: ../../ios/import_controller.mm
+    dependencies:
+      - sdk: UIKit.framework
+      - sdk: Foundation.framework
+      - sdk: UniformTypeIdentifiers.framework
+    settings:
+      base:
+        PRODUCT_BUNDLE_IDENTIFIER: dev.local.pt.importsmoke
+        TARGETED_DEVICE_FAMILY: '1'
+    info:
+      path: Info.plist
+      properties:
+        CFBundleDisplayName: P.T. Import Test
+        UILaunchScreen: {}
+        UIRequiresFullScreen: true
+        UIStatusBarHidden: true
+        UISupportedInterfaceOrientations:
+          - UIInterfaceOrientationLandscapeLeft
+          - UIInterfaceOrientationLandscapeRight

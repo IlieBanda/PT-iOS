@@ -1,0 +1,6 @@
+# Wait away from the radio until its broadcast finishes, then return for the extra lines.
+swait 6500
+gfile 0 -1.4 6.5
+gfile -1.0 -1.4 7.5
+gfile -7.0 -1.4 7.5
+swait 3000

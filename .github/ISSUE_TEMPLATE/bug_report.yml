@@ -1,0 +1,34 @@
+name: iOS bug report
+description: Report an issue with the experimental iOS port.
+labels: [bug]
+body:
+  - type: markdown
+    attributes:
+      value: |
+        Work in progress. Please describe what happened and how to reproduce it.
+        Do not attach game archives, keys, or signing credentials.
+  - type: input
+    id: device
+    attributes:
+      label: iPhone/iPad model and iOS version
+    validations:
+      required: true
+  - type: input
+    id: version
+    attributes:
+      label: Port version or commit
+  - type: textarea
+    id: reproduction
+    attributes:
+      label: Steps, expected behavior, and actual behavior
+    validations:
+      required: true
+  - type: textarea
+    id: graphics
+    attributes:
+      label: Resolution, graphics settings, and MetalFX mode
+  - type: textarea
+    id: evidence
+    attributes:
+      label: Screenshots and relevant log excerpts
+      description: Logs are in the app's Documents/P.T. folder, available through Files. Review them before posting.
