@@ -1,22 +1,50 @@
-# P.T. for iOS
+<p align="center">
+  <img src="docs/branding/pt-cover.jpg" alt="Original P.T. forest title artwork" width="960">
+</p>
 
-**Work in progress — experimental iOS port of P.T.**
+<h1 align="center">P.T. for iOS</h1>
 
-Based on **[LoreanXavier/pt-pc](https://github.com/LoreanXavier/pt-pc)** and its Hallway Engine. The original source snapshot is commit [`d0a9b8f`](https://github.com/LoreanXavier/pt-pc/commit/d0a9b8f). This repository adapts that project for iOS; it is not an independent recreation of the engine.
+<p align="center">
+  An experimental native iOS port. <strong>No CPU JIT.</strong>
+</p>
 
-Native ARM64, **no CPU JIT**. Touch controls, rendering, MetalFX, and performance are still being refined. Bugs and visual glitches are expected.
+<p align="center">
+  <img src="https://img.shields.io/badge/status-work%20in%20progress-b79457?style=flat-square" alt="Work in progress">
+  <img src="https://img.shields.io/badge/iOS-18%2B-555555?style=flat-square" alt="iOS 18 or newer">
+  <img src="https://img.shields.io/badge/architecture-ARM64-555555?style=flat-square" alt="Native ARM64">
+  <img src="https://img.shields.io/badge/CPU%20JIT-none-60826c?style=flat-square" alt="No CPU JIT">
+</p>
 
-No game archives, PS4 executable, keys, saves, or resource-bearing IPA are included. **Your own extracted P.T. dump is required.** This project does not download the game or decrypt packages.
+<p align="center">
+  <a href="#status">Status</a> · <a href="#build">Build</a> · <a href="#controls">Controls</a> · <a href="docs/ios.md">Development notes</a> · <a href="#credits-and-license">Credits</a>
+</p>
 
-## Current state
+<p align="center">
+  Based on <strong><a href="https://github.com/LoreanXavier/pt-pc">LoreanXavier/pt-pc</a></strong> and Hallway Engine.
+</p>
 
-- Native C++ compiled ahead of time; Lua 5.1 runs interpreted.
-- Vulkan rendering through MoltenVK, with optional MetalFX temporal upscaling. GPU shader compilation is separate from CPU JIT.
-- Touch overlay using an SDL virtual Xbox-style gamepad; physical controllers are supported.
-- Lower scene resolutions using the phone display's aspect ratio, fullscreen output, and a separate UI canvas.
-- A 120 FPS ceiling with thermal/power management. This is a ceiling, not a sustained-performance claim.
+---
 
-The user has launched and played earlier builds on an iPhone 16 Pro, including with a DualShock 4. Latest touch, fullscreen, and MetalFX changes still need physical-device verification. MetalFX can reduce performance; it remains optional. Successful cross-builds and Mac renderer tests do not prove iPhone performance or full game completion.
+> [!IMPORTANT]
+> **Work in progress.** Touch controls, rendering, MetalFX, and performance are still being refined. Bugs and visual glitches are expected.
+
+## The port
+
+| | |
+| :--- | :--- |
+| **Native execution** | Ahead-of-time ARM64 C++; interpreted Lua 5.1. No CPU JIT or JIT fallback. |
+| **Rendering** | Vulkan through MoltenVK, with optional MetalFX temporal upscaling. |
+| **Input** | Touch controls through an SDL virtual Xbox-style gamepad, plus physical controllers. |
+| **Display** | Reduced scene resolution with the phone's aspect ratio; fullscreen output and a separate UI canvas. |
+| **Frame rate** | Up to a 120 FPS ceiling, with thermal and power management. Sustained performance depends on the device and scene. |
+
+## Status
+
+Earlier builds have been launched and played on an **iPhone 16 Pro**, including with a **DualShock 4**. Latest touch, fullscreen, and MetalFX changes still need physical-device verification. MetalFX can reduce performance and remains optional. Mac renderer tests and successful cross-builds do not establish iPhone FPS or full game completion.
+
+This is an iOS adaptation of the original project, not an independent recreation of its engine. The source snapshot is based on upstream commit [`d0a9b8f`](https://github.com/LoreanXavier/pt-pc/commit/d0a9b8f).
+
+**Bring your own game dump.** No game archives, PS4 executable, keys, saves, or resource-bearing IPA are included. The project does not download the game or decrypt packages. The header uses original promotional artwork; [artwork sources and rights](docs/branding/README.md) are recorded separately from the code license.
 
 ## Build
 
